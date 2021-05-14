@@ -16,13 +16,7 @@ namespace EFCoreIntro.Infrastructure
         {
             modelBuilder.HasDefaultSchema("dbo");
 
-            modelBuilder.Entity<Customer>()
-                .Property(b => b.Id)
-                .IsRequired();
-
-            modelBuilder.Entity<Customer>()
-                .Property(b => b.Name)
-                .IsRequired();
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
         }
     }
 }
