@@ -27,5 +27,14 @@ namespace EFCoreApi.Controllers
 
             return Ok();
         }
+
+        [Route("{id}")]
+        [HttpGet]
+        public ActionResult<Customer> Get(int id)
+        {
+            var customer = _applicationDbContext.Set<Customer>().Find(id);
+
+            return Ok(customer);
+        }
     }
 }
